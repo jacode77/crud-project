@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 
 export default function Create() {
@@ -10,6 +11,11 @@ export default function Create() {
     console.log(firstName);
     console.log(lastName);
     console.log(checkbox);
+    axios.post("https://64240338d6152a4d4804489b.mockapi.io/fakerData", {
+      firstName,
+      lastName,
+      checkbox,
+    });
   };
 
   return (
