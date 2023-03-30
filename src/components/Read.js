@@ -8,7 +8,6 @@ export default function Read() {
 
   useEffect(() => {
     axios
-
       .get("https://64240338d6152a4d4804489b.mockapi.io/fakerData")
       .then((response) => {
         setAPIData(response.data);
@@ -37,19 +36,19 @@ export default function Read() {
         </Table.Header>
 
         <Table.Body>
-          {APIData.map((userData, idx) => {
+          {APIData.map((userData) => {
             return (
-              <Table.Row key={idx}>
+              <Table.Row key={userData.id}>
                 <Table.Cell>{userData.firstName}</Table.Cell>
                 <Table.Cell>{userData.lastName}</Table.Cell>
                 <Table.Cell>
                   {userData.checkbox ? "Checked" : "Unchecked"}
                 </Table.Cell>
-                <Link to="/update">
-                  <Table.Cell>
-                    <Button onClick={() => setData(APIData)}>Update</Button>
-                  </Table.Cell>
-                </Link>
+                <Table.Cell>
+                  <Link to="/update">
+                    <Button onClick={() => setData(userData)}>Update</Button>
+                  </Link>
+                </Table.Cell>
               </Table.Row>
             );
           })}
