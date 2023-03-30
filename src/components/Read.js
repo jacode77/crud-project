@@ -40,7 +40,6 @@ export default function Read() {
 
   return (
     <div>
-      <h3>Read Component</h3>
       <Table singleLine>
         <Table.Header>
           <Table.Row>
