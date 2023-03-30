@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import axios from "axios";
 
@@ -8,21 +9,27 @@ export default function Update() {
   const [checkbox, setCheckbox] = useState(false);
   const [id, setID] = useState(null);
 
+  let navigate = useNavigate();
+
   useEffect(() => {
     setID(localStorage.getItem("ID"));
     setFirstName(localStorage.getItem("First Name"));
     setLastName(localStorage.getItem("Last Name"));
-    setCheckbox(localStorage.getItem("Checkbox Value"));
+    setCheckbox(
+      localStorage.getItem("Checkbox Value") === "true" ? true : false
+    );
   }, []);
-  //   Logs true => expected
-  console.log(localStorage.getItem("Checkbox Value"));
 
   const updateAPIData = () => {
-    axios.put(`https://64240338d6152a4d4804489b.mockapi.io/fakerData/${id}`, {
-      firstName,
-      lastName,
-      checkbox,
-    });
+    axios
+      .put(`https://64240338d6152a4d4804489b.mockapi.io/fakerData/${id}`, {
+        firstName,
+        lastName,
+        checkbox,
+      })
+      .then(() => {
+        navigate("/read");
+      });
   };
 
   return (
@@ -37,7 +44,7 @@ export default function Update() {
           />
         </Form.Field>
         <Form.Field>
-          <label>First Name</label>
+          <label>Last Name</label>
           <input
             placeholder="Last Name"
             value={lastName}
