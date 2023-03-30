@@ -22,9 +22,24 @@ export default function Read() {
     localStorage.setItem("Checkbox Value", checkbox);
   };
 
+  const onDelete = (id) => {
+    axios
+      .delete(`https://64240338d6152a4d4804489b.mockapi.io/fakerData/${id}`)
+      .then(() => {
+        getData();
+      });
+  };
+
+  const getData = () => {
+    axios
+      .get("https://64240338d6152a4d4804489b.mockapi.io/fakerData")
+      .then((getData) => {
+        setAPIData(getData.data);
+      });
+  };
+
   return (
     <div>
-      <h3>Read Component</h3>
       <Table singleLine>
         <Table.Header>
           <Table.Row>
@@ -32,6 +47,7 @@ export default function Read() {
             <Table.HeaderCell>Last Name</Table.HeaderCell>
             <Table.HeaderCell>Checked</Table.HeaderCell>
             <Table.HeaderCell>Update</Table.HeaderCell>
+            <Table.HeaderCell>Delete</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -48,6 +64,9 @@ export default function Read() {
                   <Link to="/update">
                     <Button onClick={() => setData(userData)}>Update</Button>
                   </Link>
+                </Table.Cell>
+                <Table.Cell>
+                  <Button onClick={() => onDelete(userData.id)}>Delete</Button>
                 </Table.Cell>
               </Table.Row>
             );
