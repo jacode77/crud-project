@@ -1,50 +1,57 @@
-/* .App {
-  text-align: center;
+:root {
+  --shadow-color: 0deg 0% 0%;
+  /* --shadow-elevation-low:
+    0px 0.4px 0.5px hsl(var(--shadow-color) / 0.1),
+    0px 0.7px 0.8px -1.2px hsl(var(--shadow-color) / 0.1),
+    0.1px 1.7px 1.9px -2.5px hsl(var(--shadow-color) / 0.1); */
+  --shadow-elevation-medium: 0px 0.4px 0.5px hsl(var(--shadow-color) / 0.11),
+    0.1px 1.4px 1.6px -0.8px hsl(var(--shadow-color) / 0.11),
+    0.1px 3.5px 3.9px -1.7px hsl(var(--shadow-color) / 0.11),
+    0.3px 8.4px 9.5px -2.5px hsl(var(--shadow-color) / 0.11);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 .main {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #212121;
-  color: whitesmoke;
+  background-color: #f6f2ff;
   flex-direction: column;
+}
+
+h1 {
+  background: linear-gradient(to right, #8456ec 0%, #e87bf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  size: 3rem;
+}
+
+.ui.table {
+  background: #fbfaff !important;
+  /* filter: drop-shadow(1px 2px 8px var(--shadow-color)); */
+  box-shadow: var(--shadow-elevation-medium) !important;
+  color: #4f4f4f !important;
+}
+
+.ui.table thead th {
+  color: #240d57 !important;
+}
+
+.ui.checkbox input:checked ~ label:after {
+  color: #240d57 !important;
+}
+
+.ui.button {
+  background: #8456ec !important;
+  color: #ffffff !important;
+}
+
+.ui.form input:not([type]) {
+  color: #4f4f4f !important;
+}
+
+.form.ui.form.create-form::selection {
+  background-color: #fccafa !important;
 }
 
 .main-header {
@@ -52,7 +59,7 @@
 }
 
 .create-form label {
-  color: whitesmoke !important;
+  color: #240d57 !important;
   font-family: "Montserrat", sans-serif;
   font-size: 12px !important;
 }

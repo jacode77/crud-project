@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <div className="main">
-        <h2 className="main-header">React Crud Operations</h2>
+        <h1 className="main-header">React Crud Operations</h1>
         <div>
           <Routes>
             <Route exact path="/create" Component={Create} />
