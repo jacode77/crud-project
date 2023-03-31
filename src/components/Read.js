@@ -73,6 +73,11 @@ export default function Read() {
           })}
         </Table.Body>
       </Table>
+      <div>
+        <Link to="/create">
+          <button class="ui right floated button">Create New User</button>
+        </Link>
+      </div>
     </div>
   );
 }
